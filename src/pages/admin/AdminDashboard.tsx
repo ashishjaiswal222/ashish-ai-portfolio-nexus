@@ -1,0 +1,100 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { FaChartLine, FaProjectDiagram, FaEdit, FaUsers, FaEye, FaDownload } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
+const AdminDashboard = () => {
+  const stats = [
+    { label: 'Total Views', value: '12,345', icon: FaEye, color: 'text-neon-cyan' },
+    { label: 'Projects', value: '8', icon: FaProjectDiagram, color: 'text-neon-purple' },
+    { label: 'Downloads', value: '567', icon: FaDownload, color: 'text-neon-green' },
+    { label: 'Visitors', value: '1,234', icon: FaUsers, color: 'text-neon-pink' },
+  ];
+
+  const quickActions = [
+    { title: 'Project Management', href: '/admin/projects', icon: FaProjectDiagram, color: 'bg-neon-cyan' },
+    { title: 'Content Management', href: '/admin/content', icon: FaEdit, color: 'bg-neon-purple' },
+    { title: 'Analytics', href: '/admin/analytics', icon: FaChartLine, color: 'bg-neon-green' },
+  ];
+
+  return (
+    <div className="min-h-screen bg-background cyber-grid">
+      <div className="container mx-auto p-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-8"
+        >
+          <h1 className="font-orbitron text-4xl font-bold text-gradient-cyber mb-2">
+            ADMIN DASHBOARD
+          </h1>
+          <p className="text-foreground/60">Manage your cyberpunk portfolio</p>
+        </motion.div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Card className="cyber-border p-6 hover:glow-cyan transition-all duration-300">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-foreground/60 text-sm">{stat.label}</p>
+                    <p className="text-2xl font-bold font-orbitron">{stat.value}</p>
+                  </div>
+                  <stat.icon className={`text-2xl ${stat.color}`} />
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Quick Actions */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="mb-8"
+        >
+          <h2 className="font-orbitron text-2xl font-bold mb-6">Quick Actions</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {quickActions.map((action, index) => (
+              <Link key={action.title} to={action.href}>
+                <Card className="cyber-border p-6 hover:glow-purple transition-all duration-300 cursor-pointer group">
+                  <div className="text-center">
+                    <div className={`w-16 h-16 ${action.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <action.icon className="text-2xl text-background" />
+                    </div>
+                    <h3 className="font-orbitron font-bold">{action.title}</h3>
+                  </div>
+                </Card>
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Back to Portfolio */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.8 }}
+          className="text-center"
+        >
+          <Link to="/">
+            <Button className="cyber-button">
+              Back to Portfolio
+            </Button>
+          </Link>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export default AdminDashboard;
