@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa';
 import { SiLeetcode, SiHackerrank } from 'react-icons/si';
 import heroBackground from '@/assets/hero-bg.jpg';
 import profileAvatar from '@/assets/profile-avatar.jpg';
+import Spline3D from '@/components/effects/Spline3D';
 
 const HeroSection = () => {
   const containerVariants = {
@@ -171,29 +172,44 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
+      {/* 3D Spline Background */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
+        <Spline3D 
+          scene="https://prod.spline.design/fb9101d7-25d6-4fc2-b44a-bd772571f169/scene.splinecode"
+          className="w-full h-full"
+        />
+      </div>
+
       {/* Geometric Shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(5)].map((_, i) => (
+        {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute border border-primary/20"
+            className="absolute border border-primary/20 rounded-lg backdrop-blur-sm"
             style={{
-              width: `${Math.random() * 200 + 50}px`,
-              height: `${Math.random() * 200 + 50}px`,
+              width: `${Math.random() * 150 + 30}px`,
+              height: `${Math.random() * 150 + 30}px`,
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              rotate: 360,
-              scale: [1, 1.2, 1],
+              rotate: [0, 360],
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.6, 0.3],
             }}
             transition={{
-              duration: Math.random() * 20 + 10,
+              duration: Math.random() * 15 + 10,
               repeat: Infinity,
               ease: "linear"
             }}
           />
         ))}
+      </div>
+
+      {/* Holographic Grid Lines */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent transform skew-y-12" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent transform -skew-x-12" />
       </div>
     </section>
   );

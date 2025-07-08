@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { FaChartLine, FaProjectDiagram, FaEdit, FaUsers, FaEye, FaDownload } from 'react-icons/fa';
+import { FaChartLine, FaProjectDiagram, FaEdit, FaUsers, FaEye, FaDownload, FaSignOutAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import AdminLogin from '@/components/admin/AdminLogin';
 
 const AdminDashboard = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+  };
+
+  if (!isAuthenticated) {
+    return <AdminLogin onLogin={handleLogin} />;
+  }
+
   const stats = [
     { label: 'Total Views', value: '12,345', icon: FaEye, color: 'text-neon-cyan' },
     { label: 'Projects', value: '8', icon: FaProjectDiagram, color: 'text-neon-purple' },
@@ -25,12 +40,22 @@ const AdminDashboard = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-8 flex justify-between items-center"
         >
-          <h1 className="font-orbitron text-4xl font-bold text-gradient-cyber mb-2">
-            ADMIN DASHBOARD
-          </h1>
-          <p className="text-foreground/60">Manage your cyberpunk portfolio</p>
+          <div>
+            <h1 className="font-orbitron text-4xl font-bold text-gradient-cyber mb-2">
+              ADMIN DASHBOARD
+            </h1>
+            <p className="text-foreground/60">Manage your cyberpunk portfolio</p>
+          </div>
+          <Button 
+            onClick={handleLogout}
+            variant="outline"
+            className="cyber-button border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+          >
+            <FaSignOutAlt className="mr-2" />
+            LOGOUT
+          </Button>
         </motion.div>
 
         {/* Stats Grid */}

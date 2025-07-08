@@ -190,17 +190,91 @@
   }
 
   /* Neon Glow Effects */
-  .glow-cyan {
-    box-shadow: var(--glow-cyan);
-  }
+.glow-cyan {
+  box-shadow: var(--glow-cyan);
+}
 
-  .glow-purple {
-    box-shadow: var(--glow-purple);
-  }
+.glow-purple {
+  box-shadow: var(--glow-purple);
+}
 
-  .glow-green {
-    box-shadow: var(--glow-green);
-  }
+.glow-green {
+  box-shadow: var(--glow-green);
+}
+
+.glow-hologram {
+  box-shadow: var(--glow-hologram);
+}
+
+/* Holographic text effects */
+.text-hologram {
+  background: var(--gradient-chrome);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hologram-shift 3s ease-in-out infinite;
+}
+
+@keyframes hologram-shift {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  25% { filter: hue-rotate(90deg) brightness(1.1); }
+  50% { filter: hue-rotate(180deg) brightness(0.9); }
+  75% { filter: hue-rotate(270deg) brightness(1.1); }
+}
+
+/* 3D Transform Effects */
+.transform-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* VR/AR Inspired Effects */
+.vr-glow {
+  position: relative;
+}
+
+.vr-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)), hsl(var(--neon-green)), hsl(var(--neon-pink)));
+  border-radius: inherit;
+  z-index: -1;
+  filter: blur(8px);
+  opacity: 0.7;
+  animation: vr-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes vr-pulse {
+  0% { opacity: 0.4; transform: scale(0.95); }
+  100% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* Holographic Surface Effect */
+.holographic-surface {
+  position: relative;
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 255, 0.1) 0%, 
+    rgba(255, 0, 255, 0.1) 25%, 
+    rgba(0, 255, 0, 0.1) 50%, 
+    rgba(255, 255, 0, 0.1) 75%, 
+    rgba(0, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.holographic-surface::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  animation: holographic-sweep 3s ease-in-out infinite;
+}
+
+@keyframes holographic-sweep {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  50% { transform: translateX(100%) rotate(45deg); }
+  100% { transform: translateX(300%) rotate(45deg); }
+}
 
   /* Cyberpunk Button */
   .cyber-button {
