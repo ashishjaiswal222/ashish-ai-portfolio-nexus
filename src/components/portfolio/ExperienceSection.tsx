@@ -37,12 +37,15 @@ const ExperienceSection = () => {
   const achievements = [
     "🏆 Contingent Leader - Mood Indigo & TechFest 2023-24 (IIT Bombay)",
     "🎯 Campus Ambassador - E-Summit 2024 & 2025 (IIT Bombay)",
+    "📊 Ranked top 6 among all students in Semester 3",
+    "💻 Participated in Hackathons (2 times)",
     "🥈 2nd Prize - Best Projects in IT Forum (First Year)",
     "⭐ Best Volunteer of the Year (2024)",
     "👥 Class Representative (2nd & 3rd Semester)",
     "♟️ Chess Semi-Finalist (2 times)",
     "🤸 Gymnastics & Badminton Player",
-    "🎭 Euphoria Cultural Fest Participant (2025)"
+    "🎭 Euphoria Cultural Fest Participant - Act and Dance (2025)",
+    "🎓 Mood Indigo Contingent Leader Certificate 53rd Edition"
   ];
 
   return (

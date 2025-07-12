@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa';
 import { SiLeetcode, SiHackerrank } from 'react-icons/si';
 import heroBackground from '@/assets/hero-bg.jpg';
 import profileAvatar from '@/assets/profile-avatar.jpg';
-import Spline3D from '@/components/effects/Spline3D';
+
 
 const HeroSection = () => {
   const containerVariants = {
@@ -172,13 +172,6 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* 3D Spline Background */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none">
-        <Spline3D 
-          scene="https://prod.spline.design/fb9101d7-25d6-4fc2-b44a-bd772571f169/scene.splinecode"
-          className="w-full h-full"
-        />
-      </div>
 
       {/* Geometric Shapes */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

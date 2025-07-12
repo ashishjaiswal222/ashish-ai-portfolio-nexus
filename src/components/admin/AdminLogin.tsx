@@ -22,7 +22,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
     setLoading(true);
 
     // Simple authentication for demo
-    if (username === 'admin' && password === '1234') {
+    if (username === 'ashishjaiswal0701@gmail.com' && password === '@fusu649Ib') {
       setTimeout(() => {
         onLogin();
         setLoading(false);
@@ -36,7 +36,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
         setLoading(false);
         toast({
           title: "Login Failed",
-          description: "Invalid credentials. Use admin/1234",
+          description: "Invalid credentials",
           variant: "destructive",
         });
       }, 1000);
@@ -141,7 +141,7 @@ const AdminLogin: React.FC<AdminLoginProps> = ({ onLogin }) => {
             transition={{ delay: 0.6 }}
             className="mt-6 text-center text-sm text-foreground/60"
           >
-            Demo Credentials: admin / 1234
+            Enter your admin credentials to access the panel
           </motion.div>
         </Card>
       </motion.div>
