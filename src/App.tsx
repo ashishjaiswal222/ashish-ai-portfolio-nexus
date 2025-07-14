@@ -7,6 +7,8 @@ import Portfolio from "./pages/Portfolio";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ProjectManagement from "./pages/admin/ProjectManagement";
 import ContentManagement from "./pages/admin/ContentManagement";
+import BlogManagement from "./pages/admin/BlogManagement";
+import ContactManagement from "./pages/admin/ContactManagement";
 import Analytics from "./pages/admin/Analytics";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/projects" element={<ProjectManagement />} />
           <Route path="/admin/content" element={<ContentManagement />} />
+          <Route path="/admin/blog" element={<BlogManagement />} />
+          <Route path="/admin/contacts" element={<ContactManagement />} />
           <Route path="/admin/analytics" element={<Analytics />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

@@ -121,6 +121,17 @@ const ContactSection = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground/80 mb-2">
+                    Phone Number
+                  </label>
+                  <Input 
+                    type="tel"
+                    className="cyber-border bg-card"
+                    placeholder="+91 XXXXXXXXXX"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground/80 mb-2">
                     Subject
                   </label>
                   <Input 

@@ -25,27 +25,28 @@ import { FaJava, FaCode } from 'react-icons/fa';
 
 const SkillsSection = () => {
   const skills = [
-    { name: 'Java', level: 95, category: 'Backend', icon: FaJava, color: 'text-[#ED8B00]' },
-    { name: 'React', level: 90, category: 'Frontend', icon: SiReact, color: 'text-[#61DAFB]' },
-    { name: 'Node.js', level: 85, category: 'Backend', icon: SiNodedotjs, color: 'text-[#339933]' },
-    { name: 'PostgreSQL', level: 80, category: 'Database', icon: SiPostgresql, color: 'text-[#4169E1]' },
-    { name: 'JavaScript', level: 88, category: 'Frontend', icon: SiJavascript, color: 'text-[#F7DF1E]' },
-    { name: 'Express.js', level: 83, category: 'Backend', icon: SiExpress, color: 'text-foreground' },
+    { name: 'Java', level: 90, category: 'Programming', icon: FaJava, color: 'text-[#ED8B00]' },
+    { name: 'Python', level: 85, category: 'Programming', icon: SiPython, color: 'text-[#3776AB]' },
+    { name: 'JavaScript', level: 88, category: 'Programming', icon: SiJavascript, color: 'text-[#F7DF1E]' },
+    { name: 'C++', level: 80, category: 'Programming', icon: SiCplusplus, color: 'text-[#00599C]' },
+    { name: 'C', level: 75, category: 'Programming', icon: SiC, color: 'text-[#A8B9CC]' },
+    { name: 'React', level: 88, category: 'Frontend', icon: SiReact, color: 'text-[#61DAFB]' },
     { name: 'HTML', level: 92, category: 'Frontend', icon: SiHtml5, color: 'text-[#E34F26]' },
-    { name: 'CSS', level: 92, category: 'Frontend', icon: SiCss3, color: 'text-[#1572B6]' },
-    { name: 'Python', level: 78, category: 'Backend', icon: SiPython, color: 'text-[#3776AB]' },
-    { name: 'Flask', level: 75, category: 'Backend', icon: SiFlask, color: 'text-foreground' },
-    { name: 'Django', level: 72, category: 'Backend', icon: SiDjango, color: 'text-[#092E20]' },
-    { name: 'C++', level: 75, category: 'Programming', icon: SiCplusplus, color: 'text-[#00599C]' },
+    { name: 'CSS', level: 90, category: 'Frontend', icon: SiCss3, color: 'text-[#1572B6]' },
+    { name: 'Tailwind', level: 85, category: 'Frontend', icon: SiTailwindcss, color: 'text-[#06B6D4]' },
+    { name: 'Node.js', level: 85, category: 'Backend', icon: SiNodedotjs, color: 'text-[#339933]' },
+    { name: 'Express.js', level: 80, category: 'Backend', icon: SiExpress, color: 'text-foreground' },
+    { name: 'Flask', level: 78, category: 'Backend', icon: SiFlask, color: 'text-foreground' },
+    { name: 'Django', level: 75, category: 'Backend', icon: SiDjango, color: 'text-[#092E20]' },
+    { name: 'PostgreSQL', level: 80, category: 'Database', icon: SiPostgresql, color: 'text-[#4169E1]' },
+    { name: 'MongoDB', level: 75, category: 'Database', icon: SiMongodb, color: 'text-[#47A248]' },
     { name: 'AWS', level: 70, category: 'Cloud', icon: SiAmazonwebservices, color: 'text-[#FF9900]' },
     { name: 'Vercel', level: 85, category: 'Deployment', icon: SiVercel, color: 'text-foreground' },
     { name: 'Netlify', level: 83, category: 'Deployment', icon: SiNetlify, color: 'text-[#00C7B7]' },
     { name: 'Docker', level: 68, category: 'DevOps', icon: SiDocker, color: 'text-[#2496ED]' },
-    { name: 'MongoDB', level: 75, category: 'Database', icon: SiMongodb, color: 'text-[#47A248]' },
-    { name: 'Tailwind', level: 88, category: 'Frontend', icon: SiTailwindcss, color: 'text-[#06B6D4]' },
   ];
 
-  const categories = ['Frontend', 'Backend', 'Database', 'Programming', 'Cloud', 'Deployment', 'DevOps'];
+  const categories = ['Programming', 'Frontend', 'Backend', 'Database', 'Cloud', 'Deployment', 'DevOps'];
 
   const certifications = [
     "Agile with Atlassian (Coursera) 2024",

@@ -104,18 +104,22 @@ const Analytics = () => {
       {
         label: 'Visitors',
         data: [1245, 1567, 1398, 1876, 2134, 1789, 1654],
-        borderColor: 'hsl(var(--primary))',
-        backgroundColor: 'hsl(var(--primary) / 0.1)',
+        borderColor: '#00f5ff',
+        backgroundColor: 'rgba(0, 245, 255, 0.1)',
         tension: 0.4,
         fill: true,
+        pointBackgroundColor: '#00f5ff',
+        pointBorderColor: '#00f5ff',
       },
       {
         label: 'Page Views',
         data: [2456, 2987, 2678, 3456, 3987, 3234, 2987],
-        borderColor: 'hsl(var(--secondary))',
-        backgroundColor: 'hsl(var(--secondary) / 0.1)',
+        borderColor: '#ff00ff',
+        backgroundColor: 'rgba(255, 0, 255, 0.1)',
         tension: 0.4,
         fill: true,
+        pointBackgroundColor: '#ff00ff',
+        pointBorderColor: '#ff00ff',
       }
     ]
   };
@@ -126,11 +130,16 @@ const Analytics = () => {
       {
         data: [65, 28, 7],
         backgroundColor: [
-          'hsl(var(--primary))',
-          'hsl(var(--secondary))',
-          'hsl(var(--accent))'
+          '#00f5ff',
+          '#ff00ff',
+          '#00ff87'
         ],
-        borderWidth: 0,
+        borderColor: [
+          '#00f5ff',
+          '#ff00ff',
+          '#00ff87'
+        ],
+        borderWidth: 2,
       }
     ]
   };
@@ -142,20 +151,20 @@ const Analytics = () => {
         label: 'Project Views',
         data: [2456, 1987, 1543, 1234, 876],
         backgroundColor: [
-          'hsl(var(--primary) / 0.8)',
-          'hsl(var(--secondary) / 0.8)',
-          'hsl(var(--accent) / 0.8)',
-          'hsl(var(--primary) / 0.6)',
-          'hsl(var(--secondary) / 0.6)'
+          'rgba(0, 245, 255, 0.8)',
+          'rgba(255, 0, 255, 0.8)', 
+          'rgba(0, 255, 135, 0.8)',
+          'rgba(255, 105, 180, 0.8)',
+          'rgba(138, 43, 226, 0.8)'
         ],
         borderColor: [
-          'hsl(var(--primary))',
-          'hsl(var(--secondary))',
-          'hsl(var(--accent))',
-          'hsl(var(--primary))',
-          'hsl(var(--secondary))'
+          '#00f5ff',
+          '#ff00ff',
+          '#00ff87',
+          '#ff69b4',
+          '#8a2be2'
         ],
-        borderWidth: 1,
+        borderWidth: 2,
       }
     ]
   };
