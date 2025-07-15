@@ -4,10 +4,44 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useContactForm, ContactFormData } from "@/hooks/useContactForm";
 import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import { SiLeetcode, SiHackerrank } from 'react-icons/si';
+import { Loader2 } from "lucide-react";
+
+const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().min(10, "Please enter a valid phone number"),
+  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+// type ContactFormData = z.infer<typeof contactSchema>;
 
 const ContactSection = () => {
+  const { submitContact, isSubmitting } = useContactForm();
+  
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+    },
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    const success = await submitContact(data);
+    if (success) {
+      form.reset();
+    }
+  };
   const contactInfo = [
     {
       icon: FaEnvelope,
@@ -86,48 +120,50 @@ const ContactSection = () => {
               <h3 className="font-orbitron text-2xl font-bold text-primary mb-6">
                 SEND MESSAGE
               </h3>
-              <form className="space-y-6">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground/80 mb-2">
-                      First Name
+                      Name
                     </label>
                     <Input 
+                      {...form.register("name")}
                       className="cyber-border bg-card"
-                      placeholder="Your first name"
+                      placeholder="Your full name"
                     />
+                    {form.formState.errors.name && (
+                      <p className="text-red-400 text-sm mt-1">{form.formState.errors.name.message}</p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground/80 mb-2">
-                      Last Name
+                      Email
                     </label>
                     <Input 
+                      {...form.register("email")}
+                      type="email"
                       className="cyber-border bg-card"
-                      placeholder="Your last name"
+                      placeholder="your.email@example.com"
                     />
+                    {form.formState.errors.email && (
+                      <p className="text-red-400 text-sm mt-1">{form.formState.errors.email.message}</p>
+                    )}
                   </div>
                 </div>
                 
                 <div>
                   <label className="block text-sm font-medium text-foreground/80 mb-2">
-                    Email
-                  </label>
-                  <Input 
-                    type="email"
-                    className="cyber-border bg-card"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-foreground/80 mb-2">
                     Phone Number
                   </label>
                   <Input 
+                    {...form.register("phone")}
                     type="tel"
                     className="cyber-border bg-card"
                     placeholder="+91 XXXXXXXXXX"
                   />
+                  {form.formState.errors.phone && (
+                    <p className="text-red-400 text-sm mt-1">{form.formState.errors.phone.message}</p>
+                  )}
                 </div>
 
                 <div>
@@ -135,9 +171,13 @@ const ContactSection = () => {
                     Subject
                   </label>
                   <Input 
+                    {...form.register("subject")}
                     className="cyber-border bg-card"
                     placeholder="What's this about?"
                   />
+                  {form.formState.errors.subject && (
+                    <p className="text-red-400 text-sm mt-1">{form.formState.errors.subject.message}</p>
+                  )}
                 </div>
 
                 <div>
@@ -145,17 +185,29 @@ const ContactSection = () => {
                     Message
                   </label>
                   <Textarea 
+                    {...form.register("message")}
                     className="cyber-border bg-card min-h-32"
                     placeholder="Tell me about your project or opportunity..."
                   />
+                  {form.formState.errors.message && (
+                    <p className="text-red-400 text-sm mt-1">{form.formState.errors.message.message}</p>
+                  )}
                 </div>
 
                 <Button 
                   type="submit"
+                  disabled={isSubmitting}
                   className="cyber-button w-full bg-primary text-primary-foreground hover:bg-primary/90"
                   size="lg"
                 >
-                  SEND MESSAGE
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      SENDING...
+                    </>
+                  ) : (
+                    "SEND MESSAGE"
+                  )}
                 </Button>
               </form>
             </Card>

@@ -4,6 +4,9 @@ import { Card } from '@/components/ui/card';
 import { Avatar } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { FaQuoteLeft, FaStar, FaLinkedin, FaBuilding } from 'react-icons/fa';
+import { useState, useEffect } from "react";
+import { useTestimonials } from "@/hooks/useTestimonials";
+import TestimonialForm from "@/components/TestimonialForm";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -184,12 +187,22 @@ const TestimonialsSection = () => {
           </Card>
         </motion.div>
 
+        {/* Testimonial Submission Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-16"
+        >
+          <TestimonialForm />
+        </motion.div>
+
         {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-16"
         >
           <Card className="cyber-border p-8 bg-background/20 backdrop-blur-sm">

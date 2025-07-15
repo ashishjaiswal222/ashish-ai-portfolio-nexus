@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { FaChartLine, FaProjectDiagram, FaEdit, FaUsers, FaEye, FaDownload, FaSignOutAlt, FaFileAlt, FaArrowRight, FaEnvelope } from 'react-icons/fa';
+import { FaChartLine, FaProjectDiagram, FaEdit, FaUsers, FaEye, FaDownload, FaSignOutAlt, FaFileAlt, FaArrowRight, FaEnvelope, FaStar, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import AdminLogin from '@/components/admin/AdminLogin';
 
@@ -33,6 +33,8 @@ const AdminDashboard = () => {
     { title: 'Content Management', href: '/admin/content', icon: FaEdit, color: 'bg-neon-purple' },
     { title: 'Blog Management', href: '/admin/blog', icon: FaFileAlt, color: 'bg-neon-green' },
     { title: 'Contact Management', href: '/admin/contacts', icon: FaEnvelope, color: 'bg-neon-pink' },
+    { title: 'Testimonials', href: '/admin/testimonials', icon: FaStar, color: 'bg-yellow-500' },
+    { title: 'Profile', href: '/admin/profile', icon: FaUser, color: 'bg-blue-500' },
     { title: 'Analytics', href: '/admin/analytics', icon: FaChartLine, color: 'bg-orange-500' },
   ];
 
@@ -110,6 +112,8 @@ const AdminDashboard = () => {
                       {action.title === 'Content Management' && 'Update skills, experience, and personal info'}
                       {action.title === 'Blog Management' && 'Create and manage blog posts, SEO optimization'}
                       {action.title === 'Contact Management' && 'Manage client inquiries and communications'}
+                      {action.title === 'Testimonials' && 'Approve testimonials, manage reviews and ratings'}
+                      {action.title === 'Profile' && 'Update profile information, CV, and media'}
                       {action.title === 'Analytics' && 'Track performance, visitors, and engagement metrics'}
                     </p>
                   </Link>
