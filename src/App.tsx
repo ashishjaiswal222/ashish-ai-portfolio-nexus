@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Portfolio from "./pages/Portfolio";
 import BlogList from "./pages/BlogList";
 import BlogDetail from "./pages/BlogDetail";
+import ProjectList from "./pages/ProjectList";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import ProjectManagement from "./pages/admin/ProjectManagement";
 import ContentManagement from "./pages/admin/ContentManagement";
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/" element={<Portfolio />} />
           <Route path="/blogs" element={<BlogList />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route path="/projects" element={<ProjectList />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/projects" element={<ProjectManagement />} />
           <Route path="/admin/content" element={<ContentManagement />} />
