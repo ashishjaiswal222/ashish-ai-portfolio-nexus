@@ -223,6 +223,7 @@ const BlogSection = () => {
                       <Button 
                         variant="ghost" 
                         className="cyber-button w-full group-hover:bg-primary/10 transition-colors duration-300"
+                        onClick={() => window.location.href = `/blog/${blog.id}`}
                       >
                         <span>Read More</span>
                         <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
@@ -244,12 +245,12 @@ const BlogSection = () => {
           className="text-center"
         >
           <Button
-            onClick={() => setShowAll(!showAll)}
+            onClick={() => window.location.href = '/blogs'}
             className="cyber-button bg-gradient-cyber text-primary-foreground hover:shadow-glow-cyan transition-all duration-300"
             size="lg"
           >
-            {showAll ? 'Show Featured Only' : 'Show All Blogs'}
-            <FaArrowRight className={`ml-2 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`} />
+            Explore All Blogs
+            <FaArrowRight className="ml-2 transition-transform duration-300" />
           </Button>
         </motion.div>
 
